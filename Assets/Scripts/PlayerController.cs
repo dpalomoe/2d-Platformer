@@ -103,8 +103,9 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
+        double TOLERANCE = 1e-3;
         //check if is running
-        if(rb.velocity.x != 0)
+        if (!(Mathf.Abs(rb.velocity.x) < TOLERANCE))
         {
             isRunning = true;
         }
