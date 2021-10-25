@@ -124,8 +124,9 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        //update isRunning parameter animation with our isRunning at code.
+        //update animation parameters with our variables at code.
         anim.SetBool("isRunning", isRunning);
+        anim.SetBool("isGrounded", isGrounded);
     }
 
     private void OnDrawGizmos()
