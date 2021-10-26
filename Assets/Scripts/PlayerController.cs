@@ -14,9 +14,12 @@ public class PlayerController : MonoBehaviour
     private float movementInputDirecction;
     private bool isFacingRight = true;
     private bool isRunning;
-    private bool isGrounded;
+    public bool isGrounded;
     private bool canJump;
     private int jumpsLeft;
+    private bool crouch;
+    public bool isCrouching;
+
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -75,14 +78,36 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
-    }
 
+        if (Input.GetKey("s"))
+        {
+            Crouch();
+        }
+
+        if (!Input.GetKey("s"))
+        {
+            isCrouching = false;
+        }
+
+    }
     private void Jump()
     {
         if (canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpsLeft--;
+        }
+    }
+
+    private void Crouch()
+    {
+        if (isGrounded == true && isRunning == false)
+        {
+            isCrouching = true;
+        }
+        else
+        {
+            isCrouching = false;
         }
     }
 
@@ -128,6 +153,7 @@ public class PlayerController : MonoBehaviour
         //update animation parameters with our variables at code.
         anim.SetBool("isRunning", isRunning);
         anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isCrouching", isCrouching);
     }
 
     private void OnDrawGizmos()
