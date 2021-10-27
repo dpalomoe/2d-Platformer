@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public int amoutOfJumps = 1;
 
     private float movementInputDirecction;
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
     private bool isRunning;
     public bool isGrounded;
     private bool canJump;
@@ -159,5 +159,10 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+    }
+
+    public bool canAttack()
+    {
+        return movementInputDirecction == 0 && (isGrounded == true);
     }
 }
