@@ -32,17 +32,14 @@ public class PlayerAttack : MonoBehaviour
         cooldownTimer = 0;
 
         fireballs[FindFireball()].transform.position = firePoint.position;
-        Debug.Log("Signo de localScaleX en PlayerAttack");
         
         if(playerMovement.isFacingRight == true)
         {
             fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(1);
-            Debug.Log("Miro a la derecha, envio un 1");
         }
         else
         {
             fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(-1);
-            Debug.Log("Miro a la izquierda, envio un -1");
         }
         
     }
