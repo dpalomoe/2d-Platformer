@@ -165,4 +165,10 @@ public class PlayerController : MonoBehaviour
     {
         return movementInputDirecction == 0 && (isGrounded == true);
     }
+
+    //Method to stop player movement.
+    public void Stop()
+    {
+        rb.velocity = new Vector2(0, 0);
+    }
 }

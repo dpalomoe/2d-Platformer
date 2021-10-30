@@ -6,46 +6,57 @@ public class PlayerHealth : MonoBehaviour
 {
 
     [SerializeField] private float startingHealth;
+    //public variable but can only be modified in this class.
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
+    public GameOverScreen gameOverScreen;
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
     }
-    public void TakeDamage(float _damage)
+    public void TakeDamage(float damageReceived)
     {
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+
+        //update currentHealth. The value is going to be between 0 and startingHealth.
+        currentHealth = Mathf.Clamp(currentHealth - damageReceived, 0, startingHealth);
+
 
         if (currentHealth > 0)
         {
-            Debug.Log("hit alive");
-            //anim.SetTrigger("hurt");
-            //iframes
+            anim.SetTrigger("hurt");
+            //TODO need to add cooldown to receive more damage.
+            //TODO try to do a mini jump or something like that when receive damage
         }
         else
         {
-            Debug.Log("hit dead");
-            /*if (!dead)
+            //avoid play die animation twice
+            if (!dead)
             {
+                //If die, stop moving and play animation.
+                GetComponent<PlayerController>().Stop();
                 anim.SetTrigger("die");
-                GetComponent<PlayerMovement>().enabled = false;
+                GetComponent<PlayerController>().enabled = false;
                 dead = true;
-            }*/
+                //Wait and show GameOverScreen
+                StartCoroutine("WaitGameOver");
+            }
         }
     }
-    public void AddHealth(float _value)
+    public void AddHealth(float healhToAdd)
     {
-        //currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+        //update currentHealth. The value is going to be between 0 and startingHealth.
+        //TODO Pending to implement Collectionable
+        //currentHealth = Mathf.Clamp(currentHealth + healhToAdd, 0, startingHealth);
     }
 
-    private void Update()
+    //Function to wait 2 seconds before show GameOverScreen
+    private IEnumerator WaitGameOver()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage(1);
-        }
+        yield return new WaitForSeconds(2f);
+        //TODO Implement points
+        gameOverScreen.Setup(100);
     }
 }

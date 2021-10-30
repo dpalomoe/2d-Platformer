@@ -11,10 +11,12 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
+        // One heart is equal to 0.1
         totalhealthBar.fillAmount = playerHealth.currentHealth / 10;
     }
     private void Update()
     {
+        // One heart is equal to 0.1
         currenthealthBar.fillAmount = playerHealth.currentHealth / 10;
     }
 }
