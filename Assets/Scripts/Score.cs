@@ -17,8 +17,13 @@ public class Score : MonoBehaviour
     {
         if(collision.tag == "Collectable")
         {
-            score = score + 300;
-            scoreText.text = "Score : " + score;
+            Gem gem = collision.gameObject.GetComponent<Gem>();
+            if (!gem.picked)
+            {
+                score = score + 100;
+                scoreText.text = "Score : " + score;
+                gem.picked = true;
+            }
         }
     }
 }
