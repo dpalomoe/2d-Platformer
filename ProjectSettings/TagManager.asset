@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Trap
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - Ground
   - 
   - 
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -50,8 +52,14 @@ TagManager:
   - name: Foreground
     uniqueID: 207438239
     locked: 0
+  - name: Traps
+    uniqueID: 3467405959
+    locked: 0
   - name: Platforms
     uniqueID: 371310185
+    locked: 0
+  - name: Enemies
+    uniqueID: 2780496909
     locked: 0
   - name: Player
     uniqueID: 3545325005
