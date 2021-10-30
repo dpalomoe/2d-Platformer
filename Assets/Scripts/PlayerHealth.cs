@@ -17,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     private bool canTakeDamage;
 
     private float timer = Mathf.Infinity;
+    [SerializeField] private Score score;
+    private int aux;
 
     private void Awake()
     {
@@ -82,8 +84,8 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator WaitGameOver()
     {
         yield return new WaitForSeconds(2f);
-        //TODO Implement points
-        gameOverScreen.Setup(100);
+        //TODO Implement points.
+        gameOverScreen.Setup(score.score);
     }
 
     private void Update()
