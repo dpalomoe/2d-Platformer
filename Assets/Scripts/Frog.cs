@@ -18,6 +18,7 @@ public class Frog : MonoBehaviour
 
     public float idleTime = 2f;
     public float currentIdleTime = 0;
+    private bool isDead = false;
 
     //patrol 
     public bool mustPatrol = true;
@@ -79,47 +80,48 @@ public class Frog : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isIdle)
+        if (!isDead)
         {
-            if (mustPatrol)
+            if (isIdle)
             {
-                mustFlip = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, whatIsGround);
-                Debug.Log("MustFlip = " + mustFlip);
+                if (mustPatrol)
+                {
+                    mustFlip = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, whatIsGround);
+                }
+                currentIdleTime += Time.deltaTime;
+                if (currentIdleTime >= idleTime)
+                {
+                    currentIdleTime = 0;
+                    //facingRight = !facingRight;
+                    //spriteRenderer.flipX = facingRight;  //FLIP
+                    Jump();
+                }
             }
-            currentIdleTime += Time.deltaTime;
-            if(currentIdleTime >= idleTime)
+
+            isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x - 0.5f, transform.position.y - 0.5f),
+                new Vector2(transform.position.x + 0.5f, transform.position.y - 0.5f), whatIsGround);
+
+            if (isGrounded && isFalling)
             {
-                currentIdleTime = 0;
-                //facingRight = !facingRight;
-                //spriteRenderer.flipX = facingRight;  //FLIP
-                Jump();
+                isFalling = false;
+                isJumping = false;
+                isIdle = true;
+                ChangeAnimation(Animations.Idle);
             }
+            else if (transform.position.y > lastYPos && !isGrounded && !isIdle)
+            {
+                isJumping = true;
+                isFalling = false;
+                ChangeAnimation(Animations.Jumping);
+            }
+            else if (transform.position.y < lastYPos && !isGrounded && !isIdle)
+            {
+                isJumping = false;
+                isFalling = true;
+                ChangeAnimation(Animations.Falling);
+            }
+            lastYPos = transform.position.y;
         }
-
-        isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x - 0.5f, transform.position.y - 0.5f),
-            new Vector2(transform.position.x + 0.5f, transform.position.y - 0.5f), whatIsGround);
-
-        if (isGrounded && isFalling)
-        {
-            isFalling = false;
-            isJumping = false;
-            isIdle = true;
-            ChangeAnimation(Animations.Idle);
-        }
-        else if (transform.position.y > lastYPos && !isGrounded && !isIdle)
-        {
-            isJumping = true;
-            isFalling = false;
-            ChangeAnimation(Animations.Jumping);
-        }
-        else if (transform.position.y < lastYPos && !isGrounded && !isIdle)
-        {
-            isJumping = false;
-            isFalling = true;
-            ChangeAnimation(Animations.Falling);
-        }
-        lastYPos = transform.position.y;
-         
     }
 
     void Jump()
@@ -136,7 +138,7 @@ public class Frog : MonoBehaviour
             direction = -1;
         }
         rb.velocity = new Vector2(jumpForceX * direction, jumpForceY);
-        Debug.Log("Jump!");
+        //Debug.Log("Jump!");
     }
 
     void ChangeAnimation(Animations newAnim)
@@ -146,5 +148,12 @@ public class Frog : MonoBehaviour
             currentAnim = newAnim;
             anim.SetInteger("state", (int)newAnim);
         }
+    }
+
+    public void Die()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(2).gameObject.SetActive(true);
+        Destroy(gameObject, 0.5f);
     }
 }
