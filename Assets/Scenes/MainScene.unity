@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
 --- !u!4 &1159066 stripped
@@ -274,6 +278,10 @@ PrefabInstance:
     - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
       propertyPath: m_Name
       value: Fireball (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
@@ -459,6 +467,10 @@ PrefabInstance:
     - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
       propertyPath: m_Name
       value: Fireball (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
@@ -1275,6 +1287,10 @@ PrefabInstance:
     - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
       propertyPath: m_Name
       value: Fireball (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
@@ -52899,6 +52915,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
 --- !u!4 &1443440444 stripped
@@ -53055,6 +53075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
 --- !u!4 &1585048431 stripped
@@ -53121,6 +53145,10 @@ PrefabInstance:
     - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
       propertyPath: m_Name
       value: Fireball (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
@@ -75590,6 +75618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fireball (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
 --- !u!4 &1968122581 stripped
@@ -75882,6 +75914,10 @@ PrefabInstance:
     - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
       propertyPath: m_Name
       value: Fireball (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
+      value: Fireball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
@@ -76184,6 +76220,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
       propertyPath: m_Name
+      value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185840279836053418, guid: 1fec5209d744d3d488b010b8061c03d6, type: 3}
+      propertyPath: m_TagString
       value: Fireball
       objectReference: {fileID: 0}
     m_RemovedComponents: []

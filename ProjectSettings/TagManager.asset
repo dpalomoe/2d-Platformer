@@ -7,6 +7,7 @@ TagManager:
   - Trap
   - Enemy
   - Collectable
+  - Fireball
   layers:
   - Default
   - TransparentFX

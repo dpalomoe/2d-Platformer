@@ -19,6 +19,7 @@ public class Frog : MonoBehaviour
     public float idleTime = 2f;
     public float currentIdleTime = 0;
     private bool isDead = false;
+    private int hits = 0;
 
     //patrol 
     public bool mustPatrol = true;
@@ -152,8 +153,40 @@ public class Frog : MonoBehaviour
 
     public void Die()
     {
+        isDead = true;
         GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(2).gameObject.SetActive(true);
         Destroy(gameObject, 0.5f);
     }
+
+    private IEnumerator Hurt()
+    {
+        Debug.Log("Frog Hurt");
+        spriteRenderer.color = new Color(255, 255, 255, 0.5f);
+        yield return new WaitForSeconds(3/4);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(3 / 4);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fireball"))
+        {
+            Debug.Log("Entro rana");
+            hits++;
+            if (hits >= 3)
+            {
+                Die();
+                Debug.Log("Frog Died");
+            }
+            else
+            {
+                StartCoroutine("Hurt");
+                //Hurt();
+                Debug.Log("After Coroutine");
+            }
+            
+        }
+    }
+
 }
