@@ -49,12 +49,8 @@ public class PlayerHealth : MonoBehaviour
                 {
                     //If die, stop moving and play animation.
                     GetComponent<PlayerController>().Stop();
-                    anim.enabled = false;
-                    anim.enabled = true;
                     anim.SetBool("isDead", true);
-                    Debug.Log("Entro aqui con los pinchos");
                     anim.SetTrigger("die");
-                    Debug.Log("Despues de la animacion");
                     GetComponent<PlayerController>().enabled = false;
                     dead = true;
                     //Wait and show GameOverScreen

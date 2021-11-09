@@ -10,6 +10,7 @@ public class Frog : MonoBehaviour
     public bool isJumping = false;
     public bool isIdle = true;
     public bool isFalling = false;
+    [SerializeField] private float damage;
 
     public float jumpForceX = 2f;
     public float jumpForceY = 4f;
@@ -186,6 +187,15 @@ public class Frog : MonoBehaviour
                 Debug.Log("After Coroutine");
             }
             
+        }
+
+        
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 
