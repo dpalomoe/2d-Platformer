@@ -12,6 +12,8 @@ public class Frog : MonoBehaviour
     public bool isFalling = false;
     [SerializeField] private float damage;
 
+    public FrogEnemyHeadDetect jumpHead;
+
     public float jumpForceX = 2f;
     public float jumpForceY = 4f;
 
@@ -163,10 +165,10 @@ public class Frog : MonoBehaviour
     private IEnumerator Hurt()
     {
         Debug.Log("Frog Hurt");
-        spriteRenderer.color = new Color(255, 255, 255, 0.5f);
-        yield return new WaitForSeconds(3/4);
+        spriteRenderer.color = new Color(255, 255, 255, 0.3f);
+        yield return new WaitForSeconds(.1f);
         spriteRenderer.color = Color.white;
-        yield return new WaitForSeconds(3 / 4);
+        yield return new WaitForSeconds(.1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -193,10 +195,13 @@ public class Frog : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
-        }
+        
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                if (jumpHead.gettingHit == false)
+                {
+                    collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+                }
+            }   
     }
-
 }

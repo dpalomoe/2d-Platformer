@@ -92,11 +92,9 @@ public class SpikeHead : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entro??");
         //If this object collides with Player, call function TakeDamage.
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("entro");
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }

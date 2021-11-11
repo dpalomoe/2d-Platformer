@@ -10,6 +10,9 @@ public class EagleAI : MonoBehaviour
 
     public float speed = 200f;
     public float nextWayPointDistance = 3f;
+    [SerializeField] private float damage;
+    private int hits = 0;
+    private bool isDead = false;
 
     public Transform eagle;
 
@@ -17,17 +20,20 @@ public class EagleAI : MonoBehaviour
     private int currentWayPoint = 0;
     private bool reachedEndOfPath = false;
 
+    private GameObject aux;
+
     private Seeker seeker;
     private Rigidbody2D rb;
+
+    public SpriteRenderer spriteRenderer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-
         InvokeRepeating("UpdatePath", 0f, .5f);
-       
     }
 
     void UpdatePath()

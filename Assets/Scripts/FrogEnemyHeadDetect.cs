@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHeadDetect : MonoBehaviour
+public class FrogEnemyHeadDetect : MonoBehaviour
 {
 
     GameObject Enemy;
     private Frog frog;
+    public bool gettingHit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class EnemyHeadDetect : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        gettingHit = true;
         var magnitude = 350;
 
         var force = transform.position - collision.transform.position;
