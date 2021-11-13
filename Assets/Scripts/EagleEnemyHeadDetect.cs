@@ -18,13 +18,16 @@ public class EagleEnemyHeadDetect : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        gettingHit = true;
-        var magnitude = 2000;
+        if (collision.transform.CompareTag("Player"))
+        {
+            gettingHit = true;
+            var magnitude = 2000;
 
-        var force = transform.position - collision.transform.position;
-        force.Normalize();
-        collision.transform.GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
-        GetComponent<BoxCollider2D>().enabled = false;
-        eagle.Die();
+            var force = transform.position - collision.transform.position;
+            force.Normalize();
+            collision.transform.GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
+            GetComponent<BoxCollider2D>().enabled = false;
+            eagle.Die();
+        }
     }
 }
