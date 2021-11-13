@@ -21,17 +21,14 @@ public class Eagle : MonoBehaviour
     {
         if (collision.CompareTag("Fireball"))
         {
-            Debug.Log("Eagle tocado por Fireball");
             hits++;
             if (hits >= 3)
             {
                 Die();
-                Debug.Log("Eagle Died");
             }
             else
             {
                 StartCoroutine("Hurt");
-                Debug.Log("After Coroutine Eagle");
             }
         }
     }
