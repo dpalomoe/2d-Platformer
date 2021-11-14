@@ -13,6 +13,7 @@ public class EagleAI : MonoBehaviour
     [SerializeField] private float damage;
     private int hits = 0;
     private bool isDead = false;
+    [SerializeField] private float aggroRange;
 
     public Transform eagle;
 
@@ -33,7 +34,24 @@ public class EagleAI : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        InvokeRepeating("CheckDist", 0, 1f);
+        //InvokeRepeating("UpdatePath", 0f, .5f);
+
+    }
+
+    void CheckDist()
+    {
+        float dist = Vector2.Distance(rb.position, target.position);
+
+        if (dist <= aggroRange)
+        {
+            InvokeRepeating("UpdatePath", 0, .5f);
+        }
+        else
+        {
+            CancelInvoke("UpdatePath");
+            path = null;
+        }
     }
 
     void UpdatePath()
