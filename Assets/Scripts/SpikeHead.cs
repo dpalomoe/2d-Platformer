@@ -30,7 +30,7 @@ public class SpikeHead : MonoBehaviour
     {
         if (horizontal)
         {
-            //Movement of the Saw.
+            //Movement of the SpikeHead.
             if (movingLeft)
             {
                 //Move left

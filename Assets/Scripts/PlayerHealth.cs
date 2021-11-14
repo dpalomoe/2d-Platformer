@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
 
     [SerializeField] private float startingHealth;
-    //public variable but can only be modified in this class.
+    //public variable but only can be modified in this class.
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
