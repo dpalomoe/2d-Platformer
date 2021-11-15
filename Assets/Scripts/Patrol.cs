@@ -12,6 +12,7 @@ public class Patrol : MonoBehaviour
     [SerializeField] private Transform groundCheckPos;
     private bool mustFlip;
     public LayerMask groundLayer;
+    public Collider2D bodyCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class Patrol : MonoBehaviour
 
     private void startPatrol()
     {
-        if (mustFlip)
+        if (mustFlip || bodyCollider.IsTouchingLayers(groundLayer))
         {
             Flip();
         }

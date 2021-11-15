@@ -24,10 +24,13 @@ public class Frog : MonoBehaviour
     private bool isDead = false;
     private int hits = 0;
 
+    //public Collider2D bodyCollider;
+
     //patrol 
     public bool mustPatrol = true;
     private bool mustFlip = false;
     [SerializeField] private Transform groundCheckPos;
+    [SerializeField] private Transform checkWalls;
 
     public enum Animations
     {
@@ -58,7 +61,9 @@ public class Frog : MonoBehaviour
         {
             startPatrol();
         }*/
-        if (mustFlip)
+        //|| bodyCollider.IsTouchingLayers(whatIsGround)
+        //Debug.Log(!Physics2D.OverlapCircle(checkWalls.position, 0.1f, whatIsGround));
+        if (mustFlip || Physics2D.OverlapCircle(checkWalls.position, 0.1f, whatIsGround))
         {
             Flip();
         }
