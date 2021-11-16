@@ -28,20 +28,22 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        anim.SetTrigger("attack");
-        cooldownTimer = 0;
+        if (!playerMovement.isCrouching)
+        {
+            anim.SetTrigger("attack");
+            cooldownTimer = 0;
 
-        fireballs[FindFireball()].transform.position = firePoint.position;
-        
-        if(playerMovement.isFacingRight == true)
-        {
-            fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(1);
-        }
-        else
-        {
-            fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(-1);
-        }
-        
+            fireballs[FindFireball()].transform.position = firePoint.position;
+
+            if (playerMovement.isFacingRight == true)
+            {
+                fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(1);
+            }
+            else
+            {
+                fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(-1);
+            }
+        }  
     }
     private int FindFireball()
     {
