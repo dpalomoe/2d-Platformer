@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 10.0f;
     public float jumpForce = 16.0f;
     public Transform groundCheck;
+    public Transform wallCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     public int amoutOfJumps = 1;
+    //public float wallCheckDistance;
 
     private float movementInputDirecction;
     public bool isFacingRight = true;
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private int jumpsLeft;
     private bool crouch;
     public bool isCrouching;
+    //private bool isTouchingWall;
 
 
     private Rigidbody2D rb;
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private void CheckSurroundings()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+        //isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
     }
 
     private void CheckIfCanJump()
@@ -159,6 +163,8 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+
+        //Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
     }
 
     public bool canAttack()
