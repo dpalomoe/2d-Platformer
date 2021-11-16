@@ -13,11 +13,11 @@ public class ArrowTrap : MonoBehaviour
     {
         cdTimer = 0;
 
-        arrows[FindFireball()].transform.position = firePoint.position;
-        arrows[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile(); 
+        arrows[FindArrow()].transform.position = firePoint.position;
+        arrows[FindArrow()].GetComponent<EnemyProjectile>().ActivateProjectile(); 
     }
 
-    private int FindFireball()
+    private int FindArrow()
     {
         for (int i = 0; i < arrows.Length; i++)
         {

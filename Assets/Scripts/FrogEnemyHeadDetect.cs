@@ -18,13 +18,15 @@ public class FrogEnemyHeadDetect : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        gettingHit = true;
-        var magnitude = 350;
-
-        var force = transform.position - collision.transform.position;
-        force.Normalize();
-        collision.transform.GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
-        GetComponent<BoxCollider2D>().enabled = false;
-        frog.Die();
+        if (collision.transform.CompareTag("Player"))
+        {
+            gettingHit = true;
+            var magnitude = 12000;
+            var force = transform.position - collision.transform.position;
+            force.Normalize();
+            collision.transform.GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
+            GetComponent<BoxCollider2D>().enabled = false;
+            frog.Die();
+        }
     }
 }

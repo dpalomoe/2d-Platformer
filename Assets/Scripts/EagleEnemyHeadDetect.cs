@@ -22,7 +22,6 @@ public class EagleEnemyHeadDetect : MonoBehaviour
         {
             gettingHit = true;
             var magnitude = 2000;
-
             var force = transform.position - collision.transform.position;
             force.Normalize();
             collision.transform.GetComponent<Rigidbody2D>().AddForce(-force * magnitude);
