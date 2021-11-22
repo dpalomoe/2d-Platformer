@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 441a2d89600064d4d9ced045b19d0ae6
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1559348962143852072
+    second: crank-up_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,7 +104,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: crank-up_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82655798e9be3a510800000000000000
+      internalID: 1559348962143852072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

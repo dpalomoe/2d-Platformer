@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     public int amoutOfJumps = 1;
-    //public float wallCheckDistance;
 
     private float movementInputDirecction;
     public bool isFacingRight = true;
@@ -21,7 +20,6 @@ public class PlayerController : MonoBehaviour
     private int jumpsLeft;
     private bool crouch;
     public bool isCrouching;
-    //private bool isTouchingWall;
 
 
     private Rigidbody2D rb;
