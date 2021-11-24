@@ -7,6 +7,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackCooldown;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
+    [SerializeField] private PlayerHealth dead;
+    public bool paused = false;
+
 
     private Animator anim;
     private PlayerController playerMovement;
@@ -16,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerController>();
+        dead = GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -28,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        if (!playerMovement.isCrouching)
+        if (!playerMovement.isCrouching && !dead.dead && !paused)
         {
             anim.SetTrigger("attack");
             cooldownTimer = 0;

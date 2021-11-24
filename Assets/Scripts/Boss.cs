@@ -17,6 +17,7 @@ public class Boss : MonoBehaviour
     private bool isDead = false;
     private int hits = 0;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private PlayerHealth playerCongratulations;
 
     //References
     private Animator anim;
@@ -113,5 +114,6 @@ public class Boss : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         Destroy(gameObject, 0.5f);
+        playerCongratulations.Congratulations();
     }
 }

@@ -9,8 +9,9 @@ public class PlayerHealth : MonoBehaviour
     //public variable but only can be modified in this class.
     public float currentHealth { get; private set; }
     private Animator anim;
-    private bool dead;
+    public bool dead;
     public GameOverScreen gameOverScreen;
+    public ContratulationsScreen contratulationsScreen;
 
     [SerializeField] private float inmuneDuration;
     private SpriteRenderer spriteRend;
@@ -96,5 +97,16 @@ public class PlayerHealth : MonoBehaviour
             canTakeDamage = true;
         }
         timer += Time.deltaTime;
+    }
+
+    public void Congratulations()
+    {
+        StartCoroutine("WaitCongratulations");
+    }
+
+    private IEnumerator WaitCongratulations()
+    {
+        yield return new WaitForSeconds(2f);
+        contratulationsScreen.Setup(score.score);
     }
 }
