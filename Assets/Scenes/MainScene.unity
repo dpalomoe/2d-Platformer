@@ -2785,7 +2785,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479090087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 127.71, y: -2.19, z: 0}
+  m_LocalPosition: {x: -109.14, y: -3.21, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 68626422}
@@ -2965,7 +2965,8 @@ MonoBehaviour:
   - {fileID: 154257591}
   - {fileID: 1443440445}
   - {fileID: 1968122582}
-  dead: {fileID: 0}
+  dead: {fileID: 479090098}
+  end: {fileID: 962148198}
   paused: 0
 --- !u!114 &479090098
 MonoBehaviour:
@@ -3439,7 +3440,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 124.25563, y: -1.84883, z: 512.4753}
+  m_LocalPosition: {x: -112.59437, y: -2.86883, z: 512.4753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1241190783}
@@ -66270,6 +66271,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
+  isDead: 0
   spriteRenderer: {fileID: 962148201}
   playerCongratulations: {fileID: 479090098}
 --- !u!61 &962148199
@@ -93109,7 +93111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848418941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 124.25563, y: -1.84883, z: 512.4753}
+  m_LocalPosition: {x: -112.59437, y: -2.86883, z: 512.4753}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 209076394}
