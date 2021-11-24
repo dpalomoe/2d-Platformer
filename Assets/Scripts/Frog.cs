@@ -180,20 +180,15 @@ public class Frog : MonoBehaviour
     {
         if (collision.CompareTag("Fireball"))
         {
-            Debug.Log("Entro rana");
             hits++;
             if (hits >= 3)
             {
                 Die();
-                Debug.Log("Frog Died");
             }
             else
             {
                 StartCoroutine("Hurt");
-                //Hurt();
-                Debug.Log("After Coroutine");
-            }
-            
+            }  
         }
 
         

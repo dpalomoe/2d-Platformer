@@ -14,6 +14,9 @@ public class Boss : MonoBehaviour
 
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
+    private bool isDead = false;
+    private int hits = 0;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     //References
     private Animator anim;
@@ -26,11 +29,16 @@ public class Boss : MonoBehaviour
         enemyPatrol = GetComponentInParent<BossPatrol>();
     }
 
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
         cooldownTimer += Time.deltaTime;
 
-        //Attack only when player in sight?
+        //Attack only when player in sight
         if (PlayerInSight())
         {
             if (cooldownTimer >= attackCooldown)
@@ -72,5 +80,38 @@ public class Boss : MonoBehaviour
         {
             playerHealth.TakeDamage(damage);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fireball"))
+        {
+            hits++;
+            if (hits >= 5)
+            {
+                Die();
+            }
+            else
+            {
+                StartCoroutine("Hurt");
+            }
+        }
+    }
+
+    private IEnumerator Hurt()
+    {
+        Debug.Log("Boss Hurt");
+        spriteRenderer.color = new Color(255, 255, 255, 0.3f);
+        yield return new WaitForSeconds(.1f);
+        spriteRenderer.color = Color.white;
+        yield return new WaitForSeconds(.1f);
+    }
+
+    public void Die()
+    {
+        isDead = true;
+        GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        Destroy(gameObject, 0.5f);
     }
 }
