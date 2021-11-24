@@ -8,7 +8,12 @@ public class GameOverScreen : MonoBehaviour
 {
     public Text pointsText;
 
-   public void Setup(int score)
+    private void Start()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void Setup(int score)
     {
         gameObject.SetActive(true);
         pointsText.text = score.ToString() + " POINTS";
@@ -16,6 +21,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainScene");
     }
 

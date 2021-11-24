@@ -8,7 +8,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private PlayerHealth dead;
+    [SerializeField] private Boss end;
     public bool paused = false;
+
 
 
     private Animator anim;
@@ -32,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        if (!playerMovement.isCrouching && !dead.dead && !paused)
+        if (!playerMovement.isCrouching && !dead.dead && !paused && !end.isDead)
         {
             anim.SetTrigger("attack");
             cooldownTimer = 0;

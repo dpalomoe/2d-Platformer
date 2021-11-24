@@ -14,7 +14,7 @@ public class Boss : MonoBehaviour
 
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
-    private bool isDead = false;
+    public bool isDead = false;
     private int hits = 0;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private PlayerHealth playerCongratulations;
@@ -115,5 +115,6 @@ public class Boss : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         Destroy(gameObject, 0.5f);
         playerCongratulations.Congratulations();
+        
     }
 }
