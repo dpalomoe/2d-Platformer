@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfCanJump()
     {
-        if(isGrounded && rb.velocity.y <= 0)
+        if(isGrounded && rb.velocity.y <= 0.1)
         {
             jumpsLeft = amoutOfJumps;
         }
