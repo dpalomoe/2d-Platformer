@@ -12,6 +12,10 @@ public class IntroText : MonoBehaviour
 	private Queue<string> sentencesQueue;
 	private int numOfSentences;
 	private int actualSentence = 0;
+	private bool endDialogue = false;
+	public GameObject tutorial;
+	public GameObject canvas;
+	public GameObject playerImage;
 
 	// Use this for initialization
 	void Start()
@@ -21,11 +25,7 @@ public class IntroText : MonoBehaviour
 	}
 	public void StartDialogue()
 	{
-		Debug.Log("Entro en Start");
-
 		numOfSentences = sentences.Length;
-		Debug.Log("El numero de frases es "+ numOfSentences);
-
 		DisplayNextSentence();
 	}
 
@@ -38,15 +38,11 @@ public class IntroText : MonoBehaviour
 		}
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentences[actualSentence]));
-		Debug.Log("Entro aqui????");
-		Debug.Log(actualSentence);
 		actualSentence++;
-		Debug.Log("Despues de sumar "+ actualSentence);
 	}
 
 	IEnumerator TypeSentence(string sentence)
 	{
-		Debug.Log("He apretado el boton");
 		dialogueText.text = "";
 		foreach (char letter in sentence.ToCharArray())
 		{
@@ -57,6 +53,18 @@ public class IntroText : MonoBehaviour
 
 	void EndDialogue()
 	{
-		SceneManager.LoadScene("MainScene");
+		endDialogue = true;
+		canvas.SetActive(false);
+		tutorial.SetActive(true);
+		playerImage.SetActive(false);
+		//SceneManager.LoadScene("MainScene");
 	}
+
+    private void Update()
+    {
+		if (Input.GetKeyDown("space") && endDialogue == true)
+        {
+			SceneManager.LoadScene("MainScene");
+		}
+    }
 }
