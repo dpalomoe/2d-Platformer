@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         //Check if A or D press. A = -1 and D = 1.
         movementInputDirecction = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetKeyDown("w"))
         {
             Jump();
         }
