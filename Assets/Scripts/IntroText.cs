@@ -16,6 +16,7 @@ public class IntroText : MonoBehaviour
 	public GameObject tutorial;
 	public GameObject canvas;
 	public GameObject playerImage;
+	public GameObject background;
 
 	// Use this for initialization
 	void Start()
@@ -57,6 +58,7 @@ public class IntroText : MonoBehaviour
 		canvas.SetActive(false);
 		tutorial.SetActive(true);
 		playerImage.SetActive(false);
+		background.SetActive(false);
 		//SceneManager.LoadScene("MainScene");
 	}
 

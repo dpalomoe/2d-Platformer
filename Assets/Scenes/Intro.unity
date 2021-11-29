@@ -392,6 +392,7 @@ MonoBehaviour:
   tutorial: {fileID: 1867631130}
   canvas: {fileID: 624064689}
   playerImage: {fileID: 367263021}
+  background: {fileID: 125174718}
 --- !u!4 &370717006
 Transform:
   m_ObjectHideFlags: 0
@@ -872,7 +873,7 @@ Transform:
   m_GameObject: {fileID: 1867631130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.21, y: 0.01, z: 0}
-  m_LocalScale: {x: 1.9, y: 1.7, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
