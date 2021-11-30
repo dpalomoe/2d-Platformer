@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public GameOverScreen gameOverScreen;
     public ContratulationsScreen contratulationsScreen;
     public AudioSource gameOverClip;
+    public AudioSource congratulationsClip;
 
     [SerializeField] private float inmuneDuration;
     private SpriteRenderer spriteRend;
@@ -104,6 +105,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void Congratulations()
     {
+        AudioManager.instance.StopMusic();
+        congratulationsClip.Play();
         StartCoroutine("WaitCongratulations");
     }
 

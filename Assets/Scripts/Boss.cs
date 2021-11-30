@@ -115,6 +115,5 @@ public class Boss : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
         Destroy(gameObject, 0.5f);
         playerCongratulations.Congratulations();
-        
     }
 }
