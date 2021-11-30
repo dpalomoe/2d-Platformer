@@ -28,13 +28,16 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (!collision.CompareTag("Audio"))
         {
-            Debug.Log("Enemy hit");
+            if (collision.CompareTag("Enemy"))
+            {
+                Debug.Log("Enemy hit");
+            }
+            hit = true;
+            boxCollider.enabled = false;
+            anim.SetTrigger("explode");
         }
-        hit = true;
-        boxCollider.enabled = false;
-        anim.SetTrigger("explode");
     }
     public void SetDirection(float _direction)
     {

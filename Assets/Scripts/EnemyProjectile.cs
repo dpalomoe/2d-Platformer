@@ -37,10 +37,13 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameObject.SetActive(false);
-        if (collision.CompareTag("Player"))
+        if (!collision.CompareTag("Audio"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            gameObject.SetActive(false);
+            if (collision.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            }
         }
     }
 }

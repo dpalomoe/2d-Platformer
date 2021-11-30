@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public bool dead;
     public GameOverScreen gameOverScreen;
     public ContratulationsScreen contratulationsScreen;
+    public AudioSource gameOverClip;
 
     [SerializeField] private float inmuneDuration;
     private SpriteRenderer spriteRend;
@@ -51,6 +52,8 @@ public class PlayerHealth : MonoBehaviour
                     //If die, stop moving and play animation.
                     GetComponent<PlayerController>().Stop();
                     anim.SetBool("isDead", true);
+                    AudioManager.instance.StopMusic();
+                    gameOverClip.Play();
                     anim.SetTrigger("die");
                     GetComponent<PlayerController>().enabled = false;
                     dead = true;
