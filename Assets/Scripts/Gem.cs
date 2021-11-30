@@ -21,7 +21,11 @@ public class Gem : MonoBehaviour
             //if collides with Player, disable gem, show animation and then destroy objects.
             GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            clip.Play();
+            if (picked == false)
+            {
+                clip.Play();
+            }
+            picked = true;
             Destroy(gameObject, 0.5f);
         }
     }
