@@ -105,6 +105,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void Congratulations()
     {
+        GetComponent<PlayerController>().Stop();
+        anim.SetTrigger("win");
         AudioManager.instance.StopMusic();
         congratulationsClip.Play();
         StartCoroutine("WaitCongratulations");
