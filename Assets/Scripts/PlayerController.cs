@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     public int amoutOfJumps = 1;
+    public AudioSource JumpClip;
 
     private float movementInputDirecction;
     public bool isFacingRight = true;
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canJump)
         {
+            JumpClip.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             jumpsLeft--;
         }

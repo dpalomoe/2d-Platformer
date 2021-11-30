@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private PlayerHealth dead;
     [SerializeField] private Boss end;
+    public AudioSource fireClip;
     public bool paused = false;
 
 
@@ -37,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
         if (!playerMovement.isCrouching && !dead.dead && !paused && !end.isDead)
         {
             anim.SetTrigger("attack");
+            fireClip.Play();
             cooldownTimer = 0;
 
             fireballs[FindFireball()].transform.position = firePoint.position;

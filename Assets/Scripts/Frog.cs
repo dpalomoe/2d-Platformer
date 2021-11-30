@@ -23,6 +23,7 @@ public class Frog : MonoBehaviour
     public float currentIdleTime = 0;
     private bool isDead = false;
     private int hits = 0;
+    public AudioSource dieClip;
 
     //public Collider2D bodyCollider;
 
@@ -164,6 +165,7 @@ public class Frog : MonoBehaviour
         isDead = true;
         GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetChild(2).gameObject.SetActive(true);
+        dieClip.Play();
         Destroy(gameObject, 0.5f);
     }
 

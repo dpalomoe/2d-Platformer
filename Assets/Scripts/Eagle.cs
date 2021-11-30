@@ -10,6 +10,7 @@ public class Eagle : MonoBehaviour
     private int hits = 0;
     private SpriteRenderer spriteRenderer;
     public EagleEnemyHeadDetect jumpHead;
+    public AudioSource dieClip;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class Eagle : MonoBehaviour
         isDead = true;
         spriteRenderer.enabled = false;
         gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        dieClip.Play();
         Destroy(gameObject.transform.parent.gameObject, 0.4f);
     }
 
