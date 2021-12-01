@@ -23,6 +23,7 @@ public class Score : MonoBehaviour
                 score = score + 100;
                 scoreText.text = "Score : " + score;
                 gem.picked = true;
+                gem.clip.Play();
             }
         }
     }
