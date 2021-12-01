@@ -36,20 +36,36 @@ public class AudioManager : MonoBehaviour
     {
         if (isPlayingTrack1)
         {
-            track2.clip = newClip;
-            track2.loop = true;
-            track2.volume = 0.25f;
-            track2.PlayDelayed(1);
-            track1.Stop();
+            if (track1.clip == newClip)
+            {
+                Debug.Log("Es la misma cancion");
+            }
+            else
+            {
+                track2.clip = newClip;
+                track2.loop = true;
+                track2.volume = 0.25f;
+                track2.PlayDelayed(1);
+                track1.Stop();
+            }
+            
             
         }
         else
         {
-            track1.clip = newClip;
-            track1.loop = true;
-            track1.volume = 0.25f;
-            track1.PlayDelayed(1);
-            track2.Stop();
+            if (track2.clip == newClip)
+            {
+                Debug.Log("Es la misma cancion");
+            }
+            else
+            {
+                track1.clip = newClip;
+                track1.loop = true;
+                track1.volume = 0.25f;
+                track1.PlayDelayed(1);
+                track2.Stop();
+            }
+            
             
         }
         isPlayingTrack1 = !isPlayingTrack1;
