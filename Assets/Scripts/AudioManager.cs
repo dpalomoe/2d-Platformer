@@ -78,11 +78,12 @@ public class AudioManager : MonoBehaviour
 
     public void StopMusic()
     {
-        if (isPlayingTrack1)
+    
+        if (track1.isPlaying)
         {
             track1.Stop();
         }
-        else
+        if (track2.isPlaying)
         {
             track2.Stop();
         }
