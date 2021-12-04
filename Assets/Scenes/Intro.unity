@@ -384,11 +384,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1527712099}
   sentences:
-  - Akaland... Por fin en casa!
-  - "Que ganas ten\xEDa de... Un momento.."
-  - "\xA1Mis gemas! \xBFQu\xE9 est\xE1 pasando?"
-  - "\xBFDe d\xF3nde han salido?"
-  - "\xBFC\xF3mo se atreven? Ahora ver\xE1n quien soy!"
+  - Akaland... Finally at home!
+  - I really want to... Wait... What?
+  - My Gems! What is going on??
+  - Where did you come from? Who are you?
+  - How you dare! You are going to find out who I am
   tutorial: {fileID: 1867631130}
   canvas: {fileID: 624064689}
   playerImage: {fileID: 367263021}
