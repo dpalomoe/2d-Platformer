@@ -59,7 +59,6 @@ public class IntroText : MonoBehaviour
 		tutorial.SetActive(true);
 		playerImage.SetActive(false);
 		background.SetActive(false);
-		//SceneManager.LoadScene("MainScene");
 	}
 
     private void Update()

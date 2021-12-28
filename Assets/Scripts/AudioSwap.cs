@@ -9,7 +9,6 @@ public class AudioSwap : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Entro al collider");
             AudioManager.instance.SwapTrack(newTrack);
         }
     }
@@ -18,7 +17,6 @@ public class AudioSwap : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Salgo del collider");
             AudioManager.instance.ReturnToDefault();
         }
     }

@@ -10,12 +10,6 @@ public class EnemyProjectile : MonoBehaviour
     [SerializeField] private float resetTime;
     private float lifetime;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     private void Update()
     {

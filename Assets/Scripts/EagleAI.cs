@@ -35,8 +35,6 @@ public class EagleAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("CheckDist", 0, 1f);
-        //InvokeRepeating("UpdatePath", 0f, .5f);
-
     }
 
     void CheckDist()
@@ -74,12 +72,12 @@ public class EagleAI : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(path == null)
+        if (path == null)
         {
             return;
         }
 
-        if(currentWayPoint >= path.vectorPath.Count)
+        if (currentWayPoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
             return;
@@ -96,16 +94,16 @@ public class EagleAI : MonoBehaviour
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWayPoint]);
 
-        if(distance < nextWayPointDistance)
+        if (distance < nextWayPointDistance)
         {
             currentWayPoint++;
         }
 
-        if(rb.velocity.x >= 0.01f)
+        if (rb.velocity.x >= 0.01f)
         {
             eagle.localScale = new Vector3(-5f, 5f, 5f);
         }
-        else if(rb.velocity.x <= -0.01f)
+        else if (rb.velocity.x <= -0.01f)
         {
             eagle.localScale = new Vector3(5f, 5f, 5f);
         }

@@ -42,8 +42,6 @@ public class PlayerHealth : MonoBehaviour
                 canTakeDamage = false;
                 anim.SetTrigger("hurt");
                 StartCoroutine("Invencible");
-                //TODO need to add cooldown to receive more damage.
-                //TODO try to do a mini jump or something like that when receive damage
             }
             else
             {
@@ -79,18 +77,10 @@ public class PlayerHealth : MonoBehaviour
         Physics2D.IgnoreLayerCollision(10, 11, false);
     }
 
-    public void AddHealth(float healhToAdd)
-    {
-        //update currentHealth. The value is going to be between 0 and startingHealth.
-        //TODO Pending to implement Collectionable
-        //currentHealth = Mathf.Clamp(currentHealth + healhToAdd, 0, startingHealth);
-    }
-
     //Function to wait 2 seconds before show GameOverScreen
     private IEnumerator WaitGameOver()
     {
         yield return new WaitForSeconds(2f);
-        //TODO Implement points.
         gameOverScreen.Setup(score.score);
     }
 

@@ -44,7 +44,6 @@ public class MovingPlatforms : MonoBehaviour
                 //Move left
                 if (transform.position.x > leftEdge)
                 {
-                    //rb.velocity = new Vector2(speed * -1, rb.velocity.y);
                     transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
                 }
                 else
@@ -58,7 +57,6 @@ public class MovingPlatforms : MonoBehaviour
                 //Move right
                 if (transform.position.x < rightEdge)
                 {
-                    //rb.velocity = new Vector2(speed * 1, rb.velocity.y);
                     transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
                 }
                 else
@@ -75,7 +73,6 @@ public class MovingPlatforms : MonoBehaviour
                 //Move up
                 if (transform.position.y > topEdge)
                 {
-                    //rb.velocity = new Vector2(rb.velocity.x, speed * -1);
                     transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z);
                 }
                 else
@@ -89,7 +86,6 @@ public class MovingPlatforms : MonoBehaviour
                 //Move down
                 if (transform.position.y < botEdge)
                 {
-                    //rb.velocity = new Vector2(rb.velocity.x, speed * 1);
                     transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
                 }
                 else
@@ -100,16 +96,6 @@ public class MovingPlatforms : MonoBehaviour
             }
         }
     }
-
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            Debug.Log("DENTRO");
-            inPlatform = true;
-            collision.transform.SetParent(transform);
-        }
-    }*/
 
     private void OnCollisionStay2D(Collision2D collision)
     {

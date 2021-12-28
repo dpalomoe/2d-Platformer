@@ -30,7 +30,6 @@ public class Lever : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            Debug.Log("Triggered");
             triggered = true;
         }
     }
@@ -39,7 +38,6 @@ public class Lever : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            Debug.Log("Triggered Exit");
             triggered = false;
         }
     }

@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         {
             if (track1.clip == newClip)
             {
-                Debug.Log("Es la misma cancion");
+                //Same song
             }
             else
             {
@@ -59,7 +59,7 @@ public class AudioManager : MonoBehaviour
         {
             if (track2.clip == newClip)
             {
-                Debug.Log("Es la misma cancion");
+                //Same song
             }
             else
             {

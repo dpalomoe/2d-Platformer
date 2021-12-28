@@ -58,12 +58,6 @@ public class Frog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (mustPatrol)
-        {
-            startPatrol();
-        }*/
-        //|| bodyCollider.IsTouchingLayers(whatIsGround)
-        //Debug.Log(!Physics2D.OverlapCircle(checkWalls.position, 0.1f, whatIsGround));
         if (mustFlip || Physics2D.OverlapCircle(checkWalls.position, 0.1f, whatIsGround))
         {
             Flip();
@@ -76,7 +70,6 @@ public class Frog : MonoBehaviour
         {
             Flip();
         }
-        //Jump();
     }
 
     private void Flip()
@@ -84,7 +77,6 @@ public class Frog : MonoBehaviour
         mustPatrol = false;
         facingRight = !facingRight;
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-        //spriteRenderer.flipX = facingRight;
         mustPatrol = true;
     }
 
@@ -102,8 +94,6 @@ public class Frog : MonoBehaviour
                 if (currentIdleTime >= idleTime)
                 {
                     currentIdleTime = 0;
-                    //facingRight = !facingRight;
-                    //spriteRenderer.flipX = facingRight;  //FLIP
                     Jump();
                 }
             }
@@ -148,7 +138,6 @@ public class Frog : MonoBehaviour
             direction = -1;
         }
         rb.velocity = new Vector2(jumpForceX * direction, jumpForceY);
-        //Debug.Log("Jump!");
     }
 
     void ChangeAnimation(Animations newAnim)
@@ -171,7 +160,6 @@ public class Frog : MonoBehaviour
 
     private IEnumerator Hurt()
     {
-        Debug.Log("Frog Hurt");
         spriteRenderer.color = new Color(255, 255, 255, 0.3f);
         yield return new WaitForSeconds(.1f);
         spriteRenderer.color = Color.white;
